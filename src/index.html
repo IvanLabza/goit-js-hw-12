@@ -1,37 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>11 dz</title>
-    <link rel="stylesheet" href="../node_modules/notiflix/dist/notiflix-3.2.6.min.css" />
-    <link rel="stylesheet" href="css/style.css" /> <!-- Added postmodern style -->
-</head>
+    <title>Vanilla App Template</title>
 
-<body>
-    <header>
-        <h1>Image Search App</h1>
-    </header>
-    <main>
-        <form class="search-form" id="search-form">
-            <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
-            <button type="submit">Search</button>
-        </form>
-        <p class="error">
-            Sorry, there are no images matching your search query. Please try again.
-        </p>
-        <p class="message"></p>
-            <div class="gallery">
-                <!-- Image cards -->
-            </div>
-            
-            <button type="button" class="load-more">Load more</button>
-            </main>
-            
-            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-            <script src="../node_modules/notiflix/dist/notiflix-3.2.6.min.js"></script>
-            <script src="js/script.js" type="module"></script>
-            </body>
-            
-            </html>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <load ="partials/seach.html" />
+      <load ="partials/galary.html" />
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
