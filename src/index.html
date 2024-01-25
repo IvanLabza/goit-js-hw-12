@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
 
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <load ="partials/seach.html" />
-      <load ="partials/galary.html" />
-    </div>
-    <script type="module" src="./main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homework 11</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <form class="search-form" id="search-form">
+    <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
+    <button type="submit">Search</button>
+  </form>
+  <div class="gallery">
+    <!-- Картки зображень -->
+  </div>
+  <button type="button" class="load-more is-hidden">Load more</button>
+  <script src="index.js" type="module"></script>
+</body>
+
 </html>
