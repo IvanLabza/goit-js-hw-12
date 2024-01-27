@@ -128,7 +128,7 @@ searchFormEl.addEventListener('submit', handleSearchFormOnSubmit);
 loadMoreBtnEl.addEventListener('click', handleMoreBtnClick);
 
 function onFetchError(error) {
-  iziToast.success('Oops! Something went wrong! Try reloading the page!', {
+  iziToast.error('Oops! Something went wrong! Try reloading the page!', {
     position: 'topRight',
     timeout: 3000,
     width: '600px',
