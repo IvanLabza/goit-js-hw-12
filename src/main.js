@@ -58,7 +58,7 @@ function handleSearchFormOnSubmit(event) {
           position: 'topRight',
           timeout: 3000,
         });
-      } else {
+      } else if (data.totalHits !== 0) {
         galleryListEl.innerHTML = createGallery(data.hits);
         simpleLightBox.refresh();
         iziToast.success({
@@ -69,6 +69,17 @@ function handleSearchFormOnSubmit(event) {
         });
         if (data.totalHits > perPage) {
           loadMoreBtnEl.classList.remove('is-hidden');
+        }
+
+        const amountOfPages = Math.ceil(data.totalHits / perPage);
+        if (page >= amountOfPages) {
+          iziToast.warning({
+            title: 'Warning',
+            message:
+              "We're sorry, but you've reached the end of search results.",
+            position: 'topRight',
+            timeout: 3000,
+          });
         }
       }
     })
@@ -83,10 +94,12 @@ function handleMoreBtnClick() {
   fetchPhotos(query, page, perPage)
     .then(data => {
       const amountOfPages = Math.ceil(data.totalHits / perPage);
-
-      if (page === amountOfPages || data.totalHits <= perPage) {
+      if (
+        !loadMoreBtnEl.classList.contains('is-hidden') &&
+        (page >= amountOfPages || data.totalHits <= perPage)
+      ) {
         loadMoreBtnEl.classList.add('is-hidden');
-        if (amountOfPages === 1) {
+        if (page >= amountOfPages) {
           iziToast.warning({
             title: 'Warning',
             message:
@@ -111,13 +124,11 @@ function handleMoreBtnClick() {
     .catch(onFetchError);
 }
 
-
-
 searchFormEl.addEventListener('submit', handleSearchFormOnSubmit);
 loadMoreBtnEl.addEventListener('click', handleMoreBtnClick);
 
 function onFetchError(error) {
-  Notify.failure('Oops! Something went wrong! Try reloading the page!', {
+  iziToast.success('Oops! Something went wrong! Try reloading the page!', {
     position: 'topRight',
     timeout: 3000,
     width: '600px',
